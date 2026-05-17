@@ -442,6 +442,67 @@
             transition: all 0.4s ease;
         }
         
+        .day-image {
+            grid-column: 1 / -1;
+            margin: 20px 0;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(212,175,55,0.1), 0 0 60px rgba(212,175,55,0.05);
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .day-image:nth-child(1) { animation-delay: 0.1s; }
+        .day-image:nth-child(2) { animation-delay: 0.2s; }
+        .day-image:nth-child(3) { animation-delay: 0.3s; }
+        .day-image:nth-child(4) { animation-delay: 0.4s; }
+        .day-image:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .day-image::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--gold), transparent, var(--gold), transparent);
+            border-radius: 10px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+        }
+        
+        .day-image img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .day-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        .day-image:hover {
+            box-shadow: 0 0 40px rgba(212,175,55,0.2), 0 0 80px rgba(212,175,55,0.1);
+        }
+        
         .day-card:hover {
             border-color: rgba(212,175,55,0.4);
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
@@ -1166,23 +1227,20 @@
         <h2 class="section-title">Here's What We're Going To Cover Together</h2>
         
         <div class="days-grid">
-            <div style="grid-column: 1 / -1; margin-bottom: 20px;">
-                <img src="day2-image.jpg" alt="Workshop Schedule" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; display: block;">
+            <div class="day-image">
+                <img src="day2-image.jpg" alt="Workshop Schedule">
             </div>
-            <div style="grid-column: 1 / -1; margin: 20px 0;">
-                <img src="day2-bottom-image.jpg" alt="Day 2 Details" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; display: block;">
+            <div class="day-image">
+                <img src="day2-bottom-image.jpg" alt="Day 2 Details">
             </div>
-            
-            <div style="grid-column: 1 / -1; margin: 20px 0;">
-                <img src="day2-third-image.jpg" alt="Day 2 Additional Content" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; display: block;">
+            <div class="day-image">
+                <img src="day2-third-image.jpg" alt="Day 2 Additional Content">
             </div>
-            
-            <div style="grid-column: 1 / -1; margin: 20px 0;">
-                <img src="day2-fourth-image.jpg" alt="Day 2 More Content" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; display: block;">
+            <div class="day-image">
+                <img src="day2-fourth-image.jpg" alt="Day 2 More Content">
             </div>
-            
-            <div style="grid-column: 1 / -1; margin: 20px 0;">
-                <img src="day2-fifth-image.jpg" alt="Day 2 Final Content" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; display: block;">
+            <div class="day-image">
+                <img src="day2-fifth-image.jpg" alt="Day 2 Final Content">
             </div>
             
             <div class="day-card">
